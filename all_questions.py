@@ -1,328 +1,284 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "id": "6ac45f72-40f7-4c6a-8133-d3edd80f973d",
-   "metadata": {
-    "tags": []
-   },
-   "outputs": [],
-   "source": [
-    "# Answer found in Q5 in Question Bank 1 (Tan et al, 2nd ed)\n",
-    "\n",
-    "# import student_code_with_answers.utils as u\n",
-    "import utils as u\n",
-    "\n",
-    "\n",
-    "# Example of how to specify a binary with the structure:\n",
-    "# See the file INSTRUCTIONS.md\n",
-    "# ----------------------------------------------------------------------\n",
-    "\n",
-    "\n",
-    "def question1():\n",
-    "    \"\"\"\n",
-    "    Note 1: Each attribute can appear as a node in the tree AT MOST once.\n",
-    "    Note 2: For level two, fill the keys for all cases left and right. If and attribute\n",
-    "    is not considered for level 2, set the values to -1. For example, if \"flu\" were the\n",
-    "    choice for level 1 (it is not), then set level2_left['flu'] = level2_right['flu'] = -1.,\n",
-    "    and the same for keys 'flu_info_gain'.\n",
-    "    \"\"\"\n",
-    "    answer = False\n",
-    "    answer = {}\n",
-    "    level1 = {}\n",
-    "    level2_left = {}\n",
-    "    level2_right = {}\n",
-    "\n",
-    "    level1[\"smoking\"] = 1 # 0.72\n",
-    "    level1[\"smoking_info_gain\"] = 0.2781\n",
-    "\n",
-    "    level1[\"cough\"] = -1 # 0.97\n",
-    "    level1[\"cough_info_gain\"] = 0.0349\n",
-    "\n",
-    "    level1[\"radon\"] = -1 # 0.76\n",
-    "    level1[\"radon_info_gain\"] = 0.2365\n",
-    "\n",
-    "    level1[\"weight_loss\"] = -1 # 0.97\n",
-    "    level1[\"weight_loss_info_gain\"] = 0.029\n",
-    "\n",
-    "    level2_left[\"smoking\"] = -1\n",
-    "    level2_left[\"smoking_info_gain\"] = -1\n",
-    "    level2_right[\"smoking\"] = -1\n",
-    "    level2_right[\"smoking_info_gain\"] = -1\n",
-    "\n",
-    "    level2_left[\"radon\"] = 1\n",
-    "    level2_left[\"radon_info_gain\"] = 0.7219\n",
-    "\n",
-    "    level2_left[\"cough\"] = -1\n",
-    "    level2_left[\"cough_info_gain\"] = 0.3219\n",
-    "\n",
-    "    level2_left[\"weight_loss\"] = -1\n",
-    "    level2_left[\"weight_loss_info_gain\"] = 0.171\n",
-    "\n",
-    "    level2_right[\"radon\"] = 1\n",
-    "    level2_right[\"radon_info_gain\"] = 0.7219\n",
-    "\n",
-    "    level2_right[\"cough\"] = -1\n",
-    "    level2_right[\"cough_info_gain\"] = 0.3219\n",
-    "\n",
-    "    level2_right[\"weight_loss\"] = -1\n",
-    "    level2_right[\"weight_loss_info_gain\"] = 0.171\n",
-    "\n",
-    "    answer[\"level1\"] = level1\n",
-    "    answer[\"level2_left\"] = level2_left\n",
-    "    answer[\"level2_right\"] = level2_right\n",
-    "\n",
-    "    # Fill up `construct_tree``\n",
-    "    # tree, training_error = construct_tree()\n",
-    "    tree = u.BinaryTree(\"smoking == Yes\")  # MUST STILL CREATE THE TREE *****\n",
-    "    A = tree.insert_left(\"cough = Yes\")\n",
-    "    B = tree.insert_right(\"randon == Yes\")\n",
-    "    A.insert_left(\"y\")\n",
-    "    A.insert_left(\"y\")\n",
-    "    A.insert_left(\"y\")\n",
-    "    A.insert_left(\"y\")\n",
-    "    A.insert_left(\"n\")\n",
-    "    B.insert_left(\"y\")\n",
-    "    B.insert_right(\"n\")\n",
-    "    B.insert_right(\"n\")\n",
-    "    B.insert_right(\"n\")\n",
-    "    B.insert_right(\"n\")\n",
-    "    # tree, training_error = construct_tree\n",
-    "    # tree = U.BinaryTree(\"root\")\n",
-    "    answer[\"tree\"] = tree  # use the Tree structure\n",
-    "    # answer[\"training_error\"] = training_error\n",
-    "    answer[\"training_error\"] = 0.0  \n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "\n",
-    "\n",
-    "def question2():\n",
-    "    answer = {}\n",
-    "\n",
-    "    # Answers are floats\n",
-    "    answer[\"(a) entropy_entire_data\"] = 0.\n",
-    "    # Infogain\n",
-    "    answer[\"(b) x <= 0.2\"] = 0.\n",
-    "    answer[\"(b) x <= 0.7\"] = 0.\n",
-    "    answer[\"(b) y <= 0.6\"] = 0.\n",
-    "\n",
-    "    # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'\n",
-    "    answer[\"(c) attribute\"] = \"\"  \n",
-    "\n",
-    "    # Use the Binary Tree structure to construct the tree\n",
-    "    # Answer is an instance of BinaryTree\n",
-    "    tree = u.BinaryTree(\"Root\")\n",
-    "    answer[\"(d) full decision tree\"] = tree\n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "\n",
-    "\n",
-    "def question3():\n",
-    "    answer = {}\n",
-    "\n",
-    "    # float\n",
-    "    answer[\"(a) Gini, overall\"] = 0.5\n",
-    "\n",
-    "    # float\n",
-    "    answer[\"(b) Gini, ID\"] = 0.0\n",
-    "    answer[\"(c) Gini, Gender\"] = 0.48\n",
-    "    answer[\"(d) Gini, Car type\"] = 0.1625\n",
-    "    answer[\"(e) Gini, Shirt type\"] = 0.491\n",
-    "\n",
-    "    answer[\"(f) attr for splitting\"] = \"Car type\"\n",
-    "\n",
-    "    # Explanatory text string\n",
-    "    answer[\"(f) explain choice\"] = \"The attribute that is used for splitting after the root node is car type because it has the least Gini index.\"\n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "# Answers in th form [str1, str2, str3]\n",
-    "# If both 'binary' and 'discrete' apply, choose 'binary'.\n",
-    "# str1 in ['binary', 'discrete', 'continuous']\n",
-    "# str2 in ['qualitative', 'quantitative']\n",
-    "# str3 in ['interval', 'nominal', 'ratio', 'ordinal']\n",
-    "\n",
-    "\n",
-    "def question4():\n",
-    "    answer = {}\n",
-    "\n",
-    "    # [string, string, string]\n",
-    "    # Each string is one of ['binary', 'discrete', 'continuous', 'qualitative', 'nominal', 'ordinal',\n",
-    "    #  'quantitative', 'interval', 'ratio'\n",
-    "    # If you have a choice between 'binary' and 'discrete', choose 'binary'\n",
-    "\n",
-    "    answer[\"a\"] = ['binary', 'quantitative', 'interval']\n",
-    "\n",
-    "    # Explain if there is more than one interpretation. Repeat for the other questions. At least five words that form a sentence.\n",
-    "    answer[\"a: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"b\"] = ['continuous', 'quantitative', 'ratio']\n",
-    "    answer[\"b: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"c\"] = ['continuous', 'qualitative', 'ordinal']\n",
-    "    answer[\"c: explain\"] = \"This can also be interval in quantitative classification\"\n",
-    "\n",
-    "    answer[\"d\"] = ['continuous', 'quantitative', 'ratio']\n",
-    "    answer[\"d: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"e\"] = ['discrete', 'qualitative', 'ordinal']\n",
-    "    answer[\"e: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"f\"] = ['continuous', 'quantitative', 'ratio']\n",
-    "    answer[\"f: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"g\"] = ['discrete', 'quantitative', 'ratio']\n",
-    "    answer[\"g: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"h\"] = ['discrete', 'qualitative', 'nominal']\n",
-    "    answer[\"h: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"i\"] = ['discrete', 'qualitative', 'nominal']\n",
-    "    answer[\"i: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"j\"] = ['discrete', 'qualitative', 'ordinal']\n",
-    "    answer[\"j: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"k\"] = ['continuous', 'quantitative', 'ratio']\n",
-    "    answer[\"k: explain\"] = \"it sometimes might be discrete when the measurement is like number of buildings away and it might be interval too\"\n",
-    "\n",
-    "    answer[\"l\"] = ['continuous', 'quantitative', 'ratio']\n",
-    "    answer[\"l: explain\"] = \"\"\n",
-    "\n",
-    "    answer[\"m\"] = ['discrete', 'qualitative', 'nominal']\n",
-    "    answer[\"m: explain\"] = \"\"\n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "\n",
-    "\n",
-    "def question5():\n",
-    "    explain = {}\n",
-    "\n",
-    "    # Read appropriate section of book chapter 3\n",
-    "\n",
-    "    # string: one of 'Model 1' or 'Model 2'\n",
-    "    explain[\"a\"] = \"Model-2\"\n",
-    "    explain[\"a explain\"] = \"This is because model-2 is pruned version and it is less likely to overfit the data and have better performances on unseen data.\"\n",
-    "\n",
-    "    # string: one of 'Model 1' or 'Model 2'\n",
-    "    explain[\"b\"] = \"Model-1\"\n",
-    "    explain[\"b explain\"] = \"Even though Model 1 performed better on the combined dataset (A + B), Model 2 would be the better option for classification tasks because of its better generalization capabilities. Importantly for real-world applications, Model 2 is more likely to perform well on unknown situations and is less likely to overfit to the training data.\"\n",
-    "\n",
-    "    explain[\"c similarity\"] = \"Regularization\"\n",
-    "    explain[\"c similarity explain\"] = \"In order to aid in model selection and prevent overfitting, they both seek to incorporate model complexity into the loss function.\"\n",
-    "\n",
-    "    explain[\"c difference\"] = \"Criterion\"\n",
-    "    explain[\"c difference explain\"] = \"One difference between them is how they go about calculating model complexity, especially when it comes to decision trees.\"\n",
-    "\n",
-    "    return explain\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "def question6():\n",
-    "    answer = {}\n",
-    "    # x <= ? is the left branch\n",
-    "    # y <= ? is the left branch\n",
-    "\n",
-    "    # value of the form \"z <= float\" where \"z\" is \"x\" or \"y\"\n",
-    "    #  and \"float\" is a floating point number (notice: <=)\n",
-    "    # The value could also be \"A\" or \"B\" if it is a leaf\n",
-    "    answer[\"a, level 1\"] = \"\"\n",
-    "    answer[\"a, level 2, right\"] =\"\"\n",
-    "    answer[\"a, level 2, left\"] = \"\"\n",
-    "    answer[\"a, level 3, left\"] = \"\"\n",
-    "    answer[\"a, level 3, right\"] = \"\"\n",
-    "\n",
-    "    # run each datum through the tree. Count the number of errors and divide by number of samples. .\n",
-    "    # Since we have areas: calculate the area that is misclassified (total area is unity)\n",
-    "    # float between 0 and 1\n",
-    "    answer[\"b, expected error\"] = 0.\n",
-    "\n",
-    "    # Use u.BinaryTree to define the tree. Create your tree.\n",
-    "    # Replace \"root node\" by the proper node of the form \"z <= float\"\n",
-    "    tree = u.BinaryTree(\"root note\")\n",
-    "\n",
-    "    answer[\"c, tree\"] = tree\n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "def question7():\n",
-    "    answer = {}\n",
-    "\n",
-    "    # float\n",
-    "    answer[\"a, info gain, ID\"] = 1.0\n",
-    "    answer[\"b, info gain, Handedness\"] = 0.561\n",
-    "\n",
-    "    # string: \"ID\" or \"Handedness\"\n",
-    "    answer[\"c, which attrib\"] = \"ID\"\n",
-    "\n",
-    "    # answer is a float\n",
-    "    answer[\"d, gain ratio, ID\"] = 'undefined'\n",
-    "    answer[\"e, gain ratio, Handedness\"] = 0.561\n",
-    "\n",
-    "    # string: one of 'ID' or 'Handedness' based on gain ratio\n",
-    "    # choose the attribute with the largest gain ratio\n",
-    "    answer[\"f, which attrib\"] = \"Handedness\"\n",
-    "\n",
-    "    return answer\n",
-    "\n",
-    "\n",
-    "# ----------------------------------------------------------------------\n",
-    "\n",
-    "if __name__ == \"__main__\":\n",
-    "    answers = {}\n",
-    "    answers[\"q1\"] = question1()\n",
-    "    answers[\"q2\"] = question2()\n",
-    "    answers[\"q3\"] = question3()\n",
-    "    answers[\"q4\"] = question4()\n",
-    "    answers[\"q5\"] = question5()\n",
-    "    answers[\"q6\"] = question6()\n",
-    "    answers[\"q7\"] = question7()\n",
-    "\n",
-    "    u.save_dict(\"answers.pkl\", answers)\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "88ccb7a4-ca05-451a-8fa2-964f398c81ed",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.11.4"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 5
-}
+# Answer found in Q5 in Question Bank 1 (Tan et al, 2nd ed)
+
+# import student_code_with_answers.utils as u
+import utils as u
+
+
+# Example of how to specify a binary with the structure:
+# See the file INSTRUCTIONS.md
+# ----------------------------------------------------------------------
+
+
+def question1():
+    """
+    Note 1: Each attribute can appear as a node in the tree AT MOST once.
+    Note 2: For level two, fill the keys for all cases left and right. If and attribute
+    is not considered for level 2, set the values to -1. For example, if "flu" were the
+    choice for level 1 (it is not), then set level2_left['flu'] = level2_right['flu'] = -1.,
+    and the same for keys 'flu_info_gain'.
+    """
+    answer = False
+    answer = {}
+    level1 = {}
+    level2_left = {}
+    level2_right = {}
+
+    level1["smoking"] = 1 # 0.72
+    level1["smoking_info_gain"] = 0.2781
+
+    level1["cough"] = -1 # 0.97
+    level1["cough_info_gain"] = 0.0349
+
+    level1["radon"] = -1 # 0.76
+    level1["radon_info_gain"] = 0.2365
+
+    level1["weight_loss"] = -1 # 0.97
+    level1["weight_loss_info_gain"] = 0.029
+
+    level2_left["smoking"] = -1
+    level2_left["smoking_info_gain"] = -1
+    level2_right["smoking"] = -1
+    level2_right["smoking_info_gain"] = -1
+
+    level2_left["radon"] = 1
+    level2_left["radon_info_gain"] = 0.7219
+
+    level2_left["cough"] = -1
+    level2_left["cough_info_gain"] = 0.3219
+
+    level2_left["weight_loss"] = -1
+    level2_left["weight_loss_info_gain"] = 0.171
+
+    level2_right["radon"] = 1
+    level2_right["radon_info_gain"] = 0.7219
+
+    level2_right["cough"] = -1
+    level2_right["cough_info_gain"] = 0.3219
+
+    level2_right["weight_loss"] = -1
+    level2_right["weight_loss_info_gain"] = 0.171
+
+    answer["level1"] = level1
+    answer["level2_left"] = level2_left
+    answer["level2_right"] = level2_right
+
+    # Fill up `construct_tree``
+    # tree, training_error = construct_tree()
+    tree = u.BinaryTree("smoking == Yes")  # MUST STILL CREATE THE TREE *****
+    A = tree.insert_left("cough = Yes")
+    B = tree.insert_right("randon == Yes")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("y")
+    A.insert_left("n")
+    B.insert_left("y")
+    B.insert_right("n")
+    B.insert_right("n")
+    B.insert_right("n")
+    B.insert_right("n")
+    # tree, training_error = construct_tree
+    # tree = U.BinaryTree("root")
+    answer["tree"] = tree  # use the Tree structure
+    # answer["training_error"] = training_error
+    answer["training_error"] = 0.0  
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+
+
+def question2():
+    answer = {}
+
+    # Answers are floats
+    answer["(a) entropy_entire_data"] = 0.
+    # Infogain
+    answer["(b) x <= 0.2"] = 0.
+    answer["(b) x <= 0.7"] = 0.
+    answer["(b) y <= 0.6"] = 0.
+
+    # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
+    answer["(c) attribute"] = ""  
+
+    # Use the Binary Tree structure to construct the tree
+    # Answer is an instance of BinaryTree
+    tree = u.BinaryTree("Root")
+    answer["(d) full decision tree"] = tree
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+
+
+def question3():
+    answer = {}
+
+    # float
+    answer["(a) Gini, overall"] = 0.5
+
+    # float
+    answer["(b) Gini, ID"] = 0.0
+    answer["(c) Gini, Gender"] = 0.48
+    answer["(d) Gini, Car type"] = 0.1625
+    answer["(e) Gini, Shirt type"] = 0.491
+
+    answer["(f) attr for splitting"] = "Car type"
+
+    # Explanatory text string
+    answer["(f) explain choice"] = "The attribute that is used for splitting after the root node is car type because it has the least Gini index."
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+# Answers in th form [str1, str2, str3]
+# If both 'binary' and 'discrete' apply, choose 'binary'.
+# str1 in ['binary', 'discrete', 'continuous']
+# str2 in ['qualitative', 'quantitative']
+# str3 in ['interval', 'nominal', 'ratio', 'ordinal']
+
+
+def question4():
+    answer = {}
+
+    # [string, string, string]
+    # Each string is one of ['binary', 'discrete', 'continuous', 'qualitative', 'nominal', 'ordinal',
+    #  'quantitative', 'interval', 'ratio'
+    # If you have a choice between 'binary' and 'discrete', choose 'binary'
+
+    answer["a"] = ['binary', 'quantitative', 'interval']
+
+    # Explain if there is more than one interpretation. Repeat for the other questions. At least five words that form a sentence.
+    answer["a: explain"] = ""
+
+    answer["b"] = ['continuous', 'quantitative', 'ratio']
+    answer["b: explain"] = ""
+
+    answer["c"] = ['continuous', 'qualitative', 'ordinal']
+    answer["c: explain"] = "This can also be interval in quantitative classification"
+
+    answer["d"] = ['continuous', 'quantitative', 'ratio']
+    answer["d: explain"] = ""
+
+    answer["e"] = ['discrete', 'qualitative', 'ordinal']
+    answer["e: explain"] = ""
+
+    answer["f"] = ['continuous', 'quantitative', 'ratio']
+    answer["f: explain"] = ""
+
+    answer["g"] = ['discrete', 'quantitative', 'ratio']
+    answer["g: explain"] = ""
+
+    answer["h"] = ['discrete', 'qualitative', 'nominal']
+    answer["h: explain"] = ""
+
+    answer["i"] = ['discrete', 'qualitative', 'nominal']
+    answer["i: explain"] = ""
+
+    answer["j"] = ['discrete', 'qualitative', 'ordinal']
+    answer["j: explain"] = ""
+
+    answer["k"] = ['continuous', 'quantitative', 'ratio']
+    answer["k: explain"] = "it sometimes might be discrete when the measurement is like number of buildings away and it might be interval too"
+
+    answer["l"] = ['continuous', 'quantitative', 'ratio']
+    answer["l: explain"] = ""
+
+    answer["m"] = ['discrete', 'qualitative', 'nominal']
+    answer["m: explain"] = ""
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+
+
+def question5():
+    explain = {}
+
+    # Read appropriate section of book chapter 3
+
+    # string: one of 'Model 1' or 'Model 2'
+    explain["a"] = "Model-2"
+    explain["a explain"] = "This is because model-2 is pruned version and it is less likely to overfit the data and have better performances on unseen data."
+
+    # string: one of 'Model 1' or 'Model 2'
+    explain["b"] = "Model-1"
+    explain["b explain"] = "Even though Model 1 performed better on the combined dataset (A + B), Model 2 would be the better option for classification tasks because of its better generalization capabilities. Importantly for real-world applications, Model 2 is more likely to perform well on unknown situations and is less likely to overfit to the training data."
+
+    explain["c similarity"] = "Regularization"
+    explain["c similarity explain"] = "In order to aid in model selection and prevent overfitting, they both seek to incorporate model complexity into the loss function."
+
+    explain["c difference"] = "Criterion"
+    explain["c difference explain"] = "One difference between them is how they go about calculating model complexity, especially when it comes to decision trees."
+
+    return explain
+
+
+# ----------------------------------------------------------------------
+def question6():
+    answer = {}
+    # x <= ? is the left branch
+    # y <= ? is the left branch
+
+    # value of the form "z <= float" where "z" is "x" or "y"
+    #  and "float" is a floating point number (notice: <=)
+    # The value could also be "A" or "B" if it is a leaf
+    answer["a, level 1"] = ""
+    answer["a, level 2, right"] =""
+    answer["a, level 2, left"] = ""
+    answer["a, level 3, left"] = ""
+    answer["a, level 3, right"] = ""
+
+    # run each datum through the tree. Count the number of errors and divide by number of samples. .
+    # Since we have areas: calculate the area that is misclassified (total area is unity)
+    # float between 0 and 1
+    answer["b, expected error"] = 0.
+
+    # Use u.BinaryTree to define the tree. Create your tree.
+    # Replace "root node" by the proper node of the form "z <= float"
+    tree = u.BinaryTree("root note")
+
+    answer["c, tree"] = tree
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+def question7():
+    answer = {}
+
+    # float
+    answer["a, info gain, ID"] = 1.0
+    answer["b, info gain, Handedness"] = 0.561
+
+    # string: "ID" or "Handedness"
+    answer["c, which attrib"] = "ID"
+
+    # answer is a float
+    answer["d, gain ratio, ID"] = 'undefined'
+    answer["e, gain ratio, Handedness"] = 0.561
+
+    # string: one of 'ID' or 'Handedness' based on gain ratio
+    # choose the attribute with the largest gain ratio
+    answer["f, which attrib"] = "Handedness"
+
+    return answer
+
+
+# ----------------------------------------------------------------------
+
+if __name__ == "__main__":
+    answers = {}
+    answers["q1"] = question1()
+    answers["q2"] = question2()
+    answers["q3"] = question3()
+    answers["q4"] = question4()
+    answers["q5"] = question5()
+    answers["q6"] = question6()
+    answers["q7"] = question7()
+
+    u.save_dict("answers.pkl", answers)
