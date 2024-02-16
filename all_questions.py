@@ -24,66 +24,58 @@ def question1():
     level2_right = {}
 
     level1["smoking"] = 1.0
-    level1["smoking_info_gain"] = 0.2780719051126377
+    level1["smoking_info_gain"] = 0.2780
 
-    level1["cough"] = -1
-    level1["cough_info_gain"] = 0.034851554559677034
+    level1["cough"] = - 1.0
+    level1["cough_info_gain"] = 0.2364
 
-    level1["radon"] = -1
-    level1["radon_info_gain"] = 0.2364527976600279
+    level1["radon"] = - 1.0
+    level1["radon_info_gain"] = 0.0348
 
-    level1["weight_loss"] = -1
-    level1["weight_loss_info_gain"] = 0.02904940554533142
+    level1["weight_loss"] = - 1.0
+    level1["weight_loss_info_gain"] = 0.0290
 
-    level2_left["smoking"] = -1
-    level2_left["smoking_info_gain"] = 0
+    level2_left["smoking"] = - 1.0
+    level2_left["smoking_info_gain"] = 0.0
+    level2_right["smoking"] = - 1.0
+    level2_right["smoking_info_gain"] = 0.0
 
-    level2_right["smoking"] = -1
-    level2_right["smoking_info_gain"] = 0
-
-    level2_left["radon"] = -1
-    level2_left["radon_info_gain"] = 0
+    level2_left["radon"] = - 1.0
+    level2_left["radon_info_gain"] = 0.07290
 
     level2_left["cough"] = 1.0
-    level2_left["cough_info_gain"] = 0.7219280948873623
+    level2_left["cough_info_gain"] = 0.72192
 
-    level2_left["weight_loss"] = -1
-    level2_left["weight_loss_info_gain"] = -1
+    level2_left["weight_loss"] = - 1.0
+    level2_left["weight_loss_info_gain"] = 0.1709
 
     level2_right["radon"] = 1.0
-    level2_right["radon_info_gain"] = 0.7219280948873623
+    level2_right["radon_info_gain"] = 0.7219
 
-    level2_right["cough"] = -1
-    level2_right["cough_info_gain"] = -1
+    level2_right["cough"] = - 1.0
+    level2_right["cough_info_gain"] = 0.32192
 
-    level2_right["weight_loss"] = -1
-    level2_right["weight_loss_info_gain"] = -1
+    level2_right["weight_loss"] = - 1.0
+    level2_right["weight_loss_info_gain"] = 0.17095
 
     answer["level1"] = level1
     answer["level2_left"] = level2_left
     answer["level2_right"] = level2_right
 
-    # Fill up `construct_tree``
-    # tree, training_error = construct_tree() 
-        
-    tree = u.BinaryTree('Smoking Tobacco')
-
-    cough = tree.insert_left('Chronic Cough')
-    radon = tree.insert_left('Radon Exposure')
-
-    cough.insert_right(1)
-    cough.insert_left(4)
-
-    radon.insert_left(1)
-    radon.insert_right(4)
-    answer["tree"] = tree  
+    # Fill up construct_tree`
+    # tree, training_error = construct_tree()
+    tree = u.BinaryTree("smoking")  # MUST STILL CREATE THE TREE ***
+    A = tree.insert_left("cough")
+    B = tree.insert_right("radon")
+    A.insert_left("Yes")
+    A.insert_right("No")
+    B.insert_left("Yes")
+    B.insert_right("No")
+    answer["tree"] = tree  # use the Tree structure
+    # answer["training_error"] = training_error
     answer["training_error"] = 0.0  
 
-
-
-
     return answer
-
 
 # ----------------------------------------------------------------------
 
