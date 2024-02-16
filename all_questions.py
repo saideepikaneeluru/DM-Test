@@ -146,11 +146,6 @@ def question3():
 def question4():
     answer = {}
 
-    # [string, string, string]
-    # Each string is one of ['binary', 'discrete', 'continuous', 'qualitative', 'nominal', 'ordinal',
-    #  'quantitative', 'interval', 'ratio'
-    # If you have a choice between 'binary' and 'discrete', choose 'binary'
-
     c = 'continuous'
     d = 'discrete'
     b = 'binary'
@@ -161,50 +156,68 @@ def question4():
     i = 'interval'
     r = 'ratio'
 
-
     c_exp = 'Continuous because each measure can be subdivided into smaller measures continuously.'
     qn_exp = 'Quantitative because its value is held in its numerical value.'
     r_exp = 'Ratio because there is a 0;'
-    answer["a"] = [c, qn, r]
 
-    # Explain if there is more than one interpretation. Repeat for the other questions. At least five words that form a sentence.
-    answer["a: explain"] = "Continuous because each measure can be subdivided into smaller measures continuously. Quantitative because its value is held in its numerical value. Ratio because there is a 0; at midnight, the day begins and you cannot go back from it, that would be another day, hence another system of reference."
+    answer["a"] = [c, qn, r]
+    answer["a: explain"] = "Continuous because each measure can be subdivided into smaller measures continuously. " \
+                            "Quantitative because its value is held in its numerical value. " \
+                            "Ratio because there is a 0; at midnight, the day begins and you cannot go back from it, that would be another day, hence another system of reference."
 
     answer["b"] = [d, qn, r]
-    answer["b: explain"] = "Discrete because a human tool is always discrete, even to the finest of values. Quantitative because its value is held in its numerical value. Ratio because there is a 0; when it is completely dark out, and there is no light you cannot go back from it."
+    answer["b: explain"] = "Discrete because a human tool is always discrete, even to the finest of values. " \
+                            "Quantitative because its value is held in its numerical value. " \
+                            "Ratio because there is a 0; when it is completely dark out, and there is no light you cannot go back from it."
 
     answer["c"] = [d, qn, o]
-    answer["c: explain"] = "Discrete because there are only finite ways of describing light levels. Qualitative because its value is held in a person's judgement, not a number. Ordinal because it is assumed the judgements take the form of 'Dim', 'Bright', 'Very Bright'..."
+    answer["c: explain"] = "Discrete because there are only finite ways of describing light levels. " \
+                            "Qualitative because its value is held in a person's judgment, not a number. " \
+                            "Ordinal because it is assumed the judgments take the form of 'Dim', 'Bright', 'Very Bright'..."
 
     answer["d"] = [c, qn, r]
-    answer["d: explain"] = "Continuous because each measure can be subdivided into smaller measures continuously (i.e. 0.00000000000023° and so on). Quantitative because its value is held in its numerical value. Ratio because there is a 0; an angle cannot be -5° wide. "
+    answer["d: explain"] = "Continuous because each measure can be subdivided into smaller measures continuously (i.e. 0.00000000000023° and so on). " \
+                            "Quantitative because its value is held in its numerical value. " \
+                            "Ratio because there is a 0; an angle cannot be -5° wide."
 
     answer["e"] = [d, ql, o]
-    answer["e: explain"] = "Discrete because there are only 3 levels. Qualitative because the value is held in a title (or better yet, a metal) and not a number. Ordinal because it describes the ordr of performance."
+    answer["e: explain"] = "Discrete because there are only 3 levels. " \
+                            "Qualitative because the value is held in a title (or better yet, a metal) and not a number. " \
+                            "Ordinal because it describes the order of performance."
 
     answer["f"] = [c, qn, i]
-    answer["f: explain"] = c_exp + qn_exp + 'Interval because a 0 is not present, you can go below sea level; the same analogy applies with the different categorization between Celsius and Kelvin.'
+    answer["f: explain"] = c_exp + " " + qn_exp + ' Interval because a 0 is not present, you can go below sea level; the same analogy applies with the different categorization between Celsius and Kelvin.'
 
     answer["g"] = [d, qn, r]
-    answer["g: explain"] = "Discrete because patients are measured in natural numbers." + qn_exp + r_exp + "You cannot have -1 person."
+    answer["g: explain"] = "Discrete because patients are measured in natural numbers. " \
+                            "Quantitative because its value is held in its numerical value. " \
+                            "Ratio because there is a 0; You cannot have -1 person."
 
     answer["h"] = [d, ql, n]
-    answer["h: explain"] = "Discrete because you cannot have a fraction of an ISBN. Qualitative because the value is held in an identifier. Nominal because there is no inherent hierarchy or other operation, aside from equality and inequality, that can be made on it."
+    answer["h: explain"] = "Discrete because you cannot have a fraction of an ISBN. " \
+                            "Qualitative because the value is held in an identifier. " \
+                            "Nominal because there is no inherent hierarchy or other operation, aside from equality and inequality, that can be made on it."
 
     answer["i"] = [d, ql, o]
-    answer["i: explain"] = "Discrete because there are only 3 levels. Qualitative because the value is held in a judgement. Ordinal because it describes the level of light-passing from more opaque to more translucent."
+    answer["i: explain"] = "Discrete because there are only 3 levels. " \
+                            "Qualitative because the value is held in a judgment. " \
+                            "Ordinal because it describes the level of light-passing from more opaque to more translucent."
 
     answer["j"] = [d, ql, o]
-    answer["j: explain"] = "Discrete because there is a fixed number of military ranks which cannot be subdivided. Qualitative because the value is held in a rank rather than a number. Ordinal because it describes ranks among military personnel."
+    answer["j: explain"] = "Discrete because there is a fixed number of military ranks which cannot be subdivided. " \
+                            "Qualitative because the value is held in a rank rather than a number. " \
+                            "Ordinal because it describes ranks among military personnel."
 
     answer["k"] = [c, qn, r]
-    answer["k: explain"] = c_exp + qn_exp + r_exp + "When standing right at the center, that is the 0, you can't get closer to the center whilst also being there."
+    answer["k: explain"] = c_exp + " " + qn_exp + " " + r_exp + " When standing right at the center, that is the 0, you can't get closer to the center whilst also being there."
 
     answer["l"] = [c, qn, r]
-    answer["l: explain"] = c_exp + qn_exp + r_exp + "0 Density is a theoretical value, however I am not sure if it possible. The 0 is present."
+    answer["l: explain"] = c_exp + " " + qn_exp + " " + r_exp + " 0 Density is a theoretical value, however I am not sure if it possible. The 0 is present."
 
     answer["m"] = [d, ql, n]
-    answer["m: explain"] = "Discrete because you cannot subdivide a coat check number. Qualitative because the value is held in the identifier. Nominal because it is an identifier, there is no comparison or other operations, other than equality or inequality, to be made."
+    answer["m: explain"] = "Discrete because you cannot subdivide a coat check number. " \
+                            "Qualitative because the value is held in the identifier. " \
+                            "Nominal because it is an identifier, there is no comparison or other operations, other than equality or inequality, to be made."
 
     return answer
 
