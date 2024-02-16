@@ -83,36 +83,35 @@ def question1():
 def question2():
     answer = {}
 
-    answer["(a) entropy_entire_data"] = 1.4253642047367425
 
-    answer["(b) x <= 0.2"] = 0.17739286055515824
-    answer["(b) x <= 0.7"] = 0.3557029418697566
-    answer["(b) y <= 0.6"] = 0.34781842724338197
+    # Answers are floats
+    answer["(a) entropy_entire_data"] = 1.4253
+    # Infogain
+    answer["(b) x < 0.2"] = 0.177
+    answer["(b) x < 0.7"] = 0.355
+    answer["(b) y < 0.6"] = 0.347
 
     # choose one of 'x=0.2', 'x=0.7', or 'x=0.6'
-    answer["(c) attribute"] = "y=0.6"  
+    answer["(c) attribute"] = "x<=0.7"  
 
     # Use the Binary Tree structure to construct the tree
     # Answer is an instance of BinaryTree
-    tree = u.BinaryTree("y <= 0.6")
-    left = tree.insert_left("x <= 0.7")
-    right = tree.insert_right("x <= 0.2")
-
-    left.insert_left("B")
-    
-    y_03 = left.insert_right("y <= 0.3")
-    y_03.insert_left("A")
-    y_03.insert_right("C")
-
-    right.insert_right("A")
-    y_08 = right.insert_left("y <= 0.8")
-    y_08.insert_right("B")
-    y_08.insert_left("C")
-
+    tree = u.BinaryTree("x<=0.7")
+    A = tree.insert_left("y<=0.6")
+    A.insert_left("B")
+    C = A.insert_right("x<=0.2")
+    D = C.insert_left("y<=0.8")
+    C.insert_right("A")
+    D.insert_left("C")
+    D.insert_right("B")
+    B = tree.insert_right("y<=0.6")
+    E = B.insert_left("y<=0.3")
+    B.insert_right("A")
+    E.insert_left("A")
+    E.insert_right("C")
     answer["(d) full decision tree"] = tree
 
     return answer
-
 
 # ----------------------------------------------------------------------
 
